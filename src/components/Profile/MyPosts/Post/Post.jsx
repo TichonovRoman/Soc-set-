@@ -5,7 +5,7 @@ const Post = (props) => {
         <img src="https://i.playground.ru/p/b9nKJUCjwE2Kx1T-ygPHSg.jpeg" />
         {props.message}
         <div>
-        <span> {props.like} Like</span>  
+        <span> {props.likesCount} Like</span>  
         </div>
         
 
