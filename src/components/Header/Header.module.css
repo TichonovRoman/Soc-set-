@@ -1,0 +1,11 @@
+.header {
+    grid-area: h;
+    background-color: green;
+    background-image: "https://phonoteka.org/uploads/posts/2021-03/1616364694_22-p-fon-abstrakt-23.jpg";
+
+}
+
+.header img {
+width: 20px;
+
+}
