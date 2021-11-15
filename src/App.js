@@ -25,8 +25,8 @@ const App = (props) => {
         <Navbar />
         <div class="app-wrapper-content">
           <Routes>
-            <Route path='/dialogs/*' element={<Dialogs dialogs={props.dialogs} messages={props.messages}/>} />  {/* /* этот знак добавляется, если надо убрать exact */}
-            <Route path='/profile' element={<Profile posts={props.posts}/>} />
+            <Route path='/dialogs/*' element={<Dialogs state={props.state.dialogsPage}/>} />  {/* /* этот знак добавляется, если надо убрать exact */}
+            <Route path='/profile' element={<Profile state={props.state.profilePage}/>} />
             <Route path='/news' element={<News />} />
             <Route path='/music' element={<Music />} />
             <Route path='/settings' element={<Settings />} />
