@@ -8,15 +8,15 @@ let state = {
             { id: 4, message: `Это мой третий пост`, likesCount: "20" },
         ],
     },
-    
+
     dialogsPage: {
         dialogs: [
-            { id: 1, name: `Dimych` },
-            { id: 2, name: `Andrey` },
-            { id: 3, name: `Sveta` },
-            { id: 4, name: `Sasha` },
-            { id: 5, name: `Victor` },
-            { id: 6, name: `Valera` }
+            { id: 1, name: `Dimych`, avatar: `https://vraki.net/sites/default/files/inline/images/30_55.jpg` },
+            { id: 2, name: `Andrey`, avatar: `https://placepic.ru/wp-content/uploads/2018/01/art-krasivyie-kartinki-Putin-politika-1331294.jpeg` },
+            { id: 3, name: `Sveta`, avatar: `https://pixelbox.ru/wp-content/uploads/2021/02/mult-ava-instagram-58.jpg` },
+            { id: 4, name: `Sasha`, avatar: `https://yt3.ggpht.com/ytc/AAUvwng015d5KaGgzodaC6HmRLFwTZi8zmwZnt3onn4o=s900-c-k-c0x00ffffff-no-rj` },
+            { id: 5, name: `Victor`, avatar: `https://placepic.ru/wp-content/uploads/2021/02/image_562610131056464036330.jpg` },
+            { id: 6, name: `Valera`, avatar: `https://s.starladder.com/uploads/user_logo/5/c/9/d/meta_tag_1039d807e6e9d7e403ecd6510eb61d83.jpg` }
         ],
 
         messages: [

@@ -1,26 +1,43 @@
 .dialogs {
     display: grid;
     grid-template-columns: 2fr 10fr;
-
 }
+
 .dialogsItems {
     padding: 10px;
-
-}
-.dialog {
-
-
 }
 
 .dialogsItems .active {
     color: gold;
-
 }
 
 .messages {
     padding: 10px;
-
+    margin-left: 0px;
 }
-.message {
 
+.grid {
+    display: grid;
+    width: 400px;
+    margin: 0 auto;
+    grid-template-areas: "a b";
+    grid-template-rows: 40px 1fr;
+    grid-template-columns: 2fr 8fr;
+    grid-gap: 10px;
+}
+
+.img {
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
+}
+
+.i {
+    float: right;
+    color: chartreuse;
+}
+
+.yuo {
+    float: left;
+    color: white;
 }
