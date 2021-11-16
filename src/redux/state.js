@@ -25,9 +25,17 @@ let state = {
             { id: 3, message: `Yo` },
             { id: 4, message: `Yo` },
             { id: 5, message: `Yo` }
-        ]
+        ],
 
-    }
+
+    },
+
+    friends: [
+        { id: 1, name: `Dimych`, avatar: `https://vraki.net/sites/default/files/inline/images/30_55.jpg` },
+        { id: 2, name: `Andrey`, avatar: `https://placepic.ru/wp-content/uploads/2018/01/art-krasivyie-kartinki-Putin-politika-1331294.jpeg` },
+        { id: 3, name: `Sveta`, avatar: `https://pixelbox.ru/wp-content/uploads/2021/02/mult-ava-instagram-58.jpg` },
+
+    ]
 }
 
 export default state;
