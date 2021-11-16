@@ -18,23 +18,45 @@ const App = (props) => {
 
 
 
-        return ( <BrowserRouter >
-                <div className = "app-wrapper" >
+        return ( <
+                BrowserRouter >
+                <
+                div className = "app-wrapper" >
 
-                <Header />
-                <Navbar />
-                <div class = "app-wrapper-content" >
-                <Routes >
-                <Route path = '/dialogs/*' element = { < Dialogs state = { props.state.dialogsPage }/>} /> { /* /* этот знак добавляется, если надо убрать exact */ }
-                <Route path = '/profile' element = { < Profile state = { props.state.profilePage }/>} />
-                        <Route path = '/news' element = { < News /> }/>
-                        <Route path = '/music' element = { < Music /> }/> 
-                        <Route path = '/settings' element = { < Settings /> }/>
-                        <Route path = '/friends' element = { < Friends />}/> </Routes>
+                <
+                Header / >
+                <
+                Navbar state = { props.state.friends }
+                /> <
+                div class = "app-wrapper-content" >
+                <
+                Routes >
+                <
+                Route path = '/dialogs/*'
+                element = { < Dialogs state = { props.state.dialogsPage }
+                    />} / > { /* /* этот знак добавляется, если надо убрать exact */ } <
+                    Route path = '/profile'
+                    element = { < Profile state = { props.state.profilePage }
+                        />} / >
+                        <
+                        Route path = '/news'
+                        element = { < News / > }
+                        /> <
+                        Route path = '/music'
+                        element = { < Music / > }
+                        /> <
+                        Route path = '/settings'
+                        element = { < Settings / > }
+                        /> <
+                        Route path = '/friends'
+                        element = { < Friends / > }
+                        /> <
+                        /Routes>
 
-                        </div> </div>
-
-        </BrowserRouter>
+                        <
+                        /div> <
+                        /div> <
+                        /BrowserRouter>
                     );
                 }
 

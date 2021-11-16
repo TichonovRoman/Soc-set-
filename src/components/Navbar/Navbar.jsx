@@ -1,8 +1,9 @@
 import { NavLink } from "react-router-dom";
 import s from "./Navbar.module.css";
-import state from "../../redux/state";
 
-const Navbar = () => {
+
+const Navbar = (props) => {
+  
   return (
     <nav className={s.nav}>
       <div className={s.item}>
@@ -32,18 +33,18 @@ const Navbar = () => {
       <div className={s.friendsList}>
 
         <div className={s.friends}>
-          <img src={state.friends[0].avatar} />
-          {state.friends[0].name}
+          <img src={props.state[0].avatar} />
+          {props.state[0].name}
         </div>
 
         <div className={s.friends}>
-          <img src={state.friends[1].avatar} />
-          {state.friends[1].name}
+          <img src={props.state[1].avatar} />
+          {props.state[1].name}
         </div>
 
         <div className={s.friends}>
-          <img src={state.friends[2].avatar} />
-          {state.friends[2].name}
+          <img src={props.state[2].avatar} />
+          {props.state[2].name}
         </div>
 
 
