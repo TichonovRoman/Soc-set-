@@ -18,8 +18,8 @@ const App = (props) => {
 
 
 
-        return ( <
-                BrowserRouter >
+        return (
+
                 <
                 div className = "app-wrapper" >
 
@@ -55,8 +55,7 @@ const App = (props) => {
 
                         <
                         /div> <
-                        /div> <
-                        /BrowserRouter>
+                        /div>
                     );
                 }
 
