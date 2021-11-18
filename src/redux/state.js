@@ -1,11 +1,15 @@
+import reactDom from "react-dom";
+import {rerenderEntireTree} from  "../render"
+
+
 let state = {
 
     profilePage: {
         posts: [
-            { id: 1, message: `Hi, how are you?`, likesCount: "15" },
-            { id: 2, message: `Это мой первый пост`, likesCount: "20" },
-            { id: 3, message: `Это мой второй пост`, likesCount: "20" },
-            { id: 4, message: `Это мой третий пост`, likesCount: "20" },
+            { id: 1, message: `Hi, how are you?`, likesCount: 15 },
+            { id: 2, message: `Это мой первый пост`, likesCount: 20 },
+            { id: 3, message: `Это мой второй пост`, likesCount: 20 },
+            { id: 4, message: `Это мой третий пост`, likesCount: 20 },
         ],
     },
 
@@ -16,7 +20,7 @@ let state = {
             { id: 3, name: `Sveta`, avatar: `https://pixelbox.ru/wp-content/uploads/2021/02/mult-ava-instagram-58.jpg` },
             { id: 4, name: `Sasha`, avatar: `https://yt3.ggpht.com/ytc/AAUvwng015d5KaGgzodaC6HmRLFwTZi8zmwZnt3onn4o=s900-c-k-c0x00ffffff-no-rj` },
             { id: 5, name: `Victor`, avatar: `https://placepic.ru/wp-content/uploads/2021/02/image_562610131056464036330.jpg` },
-            { id: 6, name: `Valera`, avatar: `https://s.starladder.com/uploads/user_logo/5/c/9/d/meta_tag_1039d807e6e9d7e403ecd6510eb61d83.jpg` }
+            { id: 6, name: `Matvey`, avatar: `https://s.starladder.com/uploads/user_logo/5/c/9/d/meta_tag_1039d807e6e9d7e403ecd6510eb61d83.jpg` }
         ],
 
         messages: [
@@ -37,5 +41,18 @@ let state = {
 
     ]
 }
+
+export let addPost = (postMessage) => {
+
+    let newPost = {
+        id: 5,
+        message: postMessage,
+        likesCount: 0
+
+    };
+    state.profilePage.posts.push(newPost);
+    rerenderEntireTree(state);
+}
+
 
 export default state;

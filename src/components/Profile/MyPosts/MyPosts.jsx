@@ -9,18 +9,20 @@ import React from "react";
    
 
 const MyPosts = (props) => {
-
+  
+  
   let postsElement = 
   props.posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>)
 
  let newPostElement = React.createRef();
  
   let addPost = () => {
-    let text = newPostElement.current.value
-    alert (text)
+   
+    let text = newPostElement.current.value;
+    props.addPost(text);
   }
 
-  return <div class={s.postsBlock}>
+  return <div className={s.postsBlock}>
     <h3>My posts</h3>
     <div>
       <div>
