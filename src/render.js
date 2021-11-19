@@ -4,12 +4,14 @@ import { BrowserRouter } from "react-router-dom";
 import App from './App';
 import { addPost } from './redux/state';
 import { updateNewPostText } from './redux/state';
+import { addMessage } from './redux/state';
+import { updateNewMessageText } from './redux/state';
 
 export let rerenderEntireTree = (state) =>{
  
 ReactDOM.render( 
   <React.StrictMode >
-    <BrowserRouter> < App state = { state} addPost={addPost} updateNewPostText={updateNewPostText}/> </BrowserRouter>
+    <BrowserRouter> < App state = { state} addPost={addPost} updateNewPostText={updateNewPostText} addMessage={addMessage} updateNewMessageText={updateNewMessageText} /> </BrowserRouter>
     </React.StrictMode>, document.getElementById('root')
 );
 }

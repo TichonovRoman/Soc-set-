@@ -2,6 +2,8 @@ import s from "./Dialogs.module.css"
 import DialogItem from "./DialogsItem/Dialogs"
 import Message from "./Message/Message"
 import React from "react"
+import { rerenderEntireTree } from "../../render"
+
 
 
 
@@ -18,9 +20,14 @@ const Dialogs = (props) => {
     let newMessageElement = React.createRef();
 
     let addMessage = () => {
-        let text = newMessageElement.current.value;
-        alert(text)
+        props.addMessage();
     }
+
+    let onMessageChange = () => {
+        let text = newMessageElement.current.value;
+        props.updateNewMessageText(text)
+    
+      }
 
 
 
@@ -36,7 +43,10 @@ const Dialogs = (props) => {
                 {messageElements}
 
                 <div>
-                    <textarea ref={newMessageElement}> </textarea>
+                    <textarea 
+                    ref={newMessageElement}
+                    value = {props.newMessageText}
+                    onChange={onMessageChange}> </textarea>
                 </div>
 
                 <div>
