@@ -9,13 +9,13 @@ import Music from './components/Music/Music';
 import News from './components/News/News';
 import Settings from './components/Settings/Settings';
 import Friends from './components/Friends/Friends';
+import store from './redux/state';
 
 
 
 
 
 const App = (props) => {
-
   
 
   return (
@@ -26,8 +26,8 @@ const App = (props) => {
         <Navbar state={props.state.friends}/>
         <div className="app-wrapper-content">
           <Routes>
-            <Route path='/dialogs/*' element={<Dialogs state={props.state.dialogsPage} addMessage={props.addMessage} updateNewMessageText={props.updateNewMessageText}/>} />  {/* /* этот знак добавляется, если надо убрать exact */}
-            <Route path='/profile' element={<Profile profilePage={props.state.profilePage} addPost={props.addPost} updateNewPostText={props.updateNewPostText}/>} />
+            <Route path='/dialogs/*' element={<Dialogs store = {props.store}/>} />  /* /* этот знак добавляется, если надо убрать exact */
+            <Route path='/profile' element={<Profile profilePage={props.state.profilePage} dispath={props.dispath} />} />
             <Route path='/news' element={<News />} />
             <Route path='/music' element={<Music />} />
             <Route path='/settings' element={<Settings />} />

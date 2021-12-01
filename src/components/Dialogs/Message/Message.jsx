@@ -1,10 +1,6 @@
 import s from "../Dialogs.module.css"
 
 
-
-
-
-
 let Message = (props) => {
     
         return (

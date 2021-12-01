@@ -1,82 +1,109 @@
 import reactDom from "react-dom";
-import {rerenderEntireTree} from  "../render"
+import dialogsReducer from "./dialogs-reducer";
+import frindsReducer from "./friends-reducer";
+import profileReducer from "./profile-reducer";
+
+const UPDATE_NEW_POST_TEXT = `UPDATE-NEW-POST-TEXT`;
+const ADD_POST = `ADD-POST`;
+const UPDATE_NEW_MESSAGE_BODY = `UPDATE-NEW-MESSAGE-BODY`;
+const SEND_MESSAGE = `SEND-MESSAGE`;
 
 
-let state = {
+let store = {
 
-    profilePage: {
-        posts: [
-            { id: 1, message: `Hi, how are you?`, likesCount: 15 },
-            { id: 2, message: `Это мой первый пост`, likesCount: 20 },
-            { id: 3, message: `Это мой второй пост`, likesCount: 20 },
-            { id: 4, message: `Это мой третий пост`, likesCount: 20 },
-        ],
-        newPostText: "it-kamasutra.com"
-    },
+        _state: {
 
-    dialogsPage: {
-        dialogs: [
+        profilePage: {
+            posts: [
+                { id: 1, message: `Hi, how are you?`, likesCount: 15 },
+                { id: 2, message: `Это мой первый пост`, likesCount: 20 },
+                { id: 3, message: `Это мой второй пост`, likesCount: 20 },
+                { id: 4, message: `Это мой третий пост`, likesCount: 20 },
+            ],
+            newPostText: "it-kamasutra.com"
+        },
+    
+        dialogsPage: {
+            dialogs: [
+                { id: 1, name: `Dimych`, avatar: `https://vraki.net/sites/default/files/inline/images/30_55.jpg` },
+                { id: 2, name: `Andrey`, avatar: `https://placepic.ru/wp-content/uploads/2018/01/art-krasivyie-kartinki-Putin-politika-1331294.jpeg` },
+                { id: 3, name: `Sveta`, avatar: `https://pixelbox.ru/wp-content/uploads/2021/02/mult-ava-instagram-58.jpg` },
+                { id: 4, name: `Sasha`, avatar: `https://yt3.ggpht.com/ytc/AAUvwng015d5KaGgzodaC6HmRLFwTZi8zmwZnt3onn4o=s900-c-k-c0x00ffffff-no-rj` },
+                { id: 5, name: `Victor`, avatar: `https://placepic.ru/wp-content/uploads/2021/02/image_562610131056464036330.jpg` },
+                { id: 6, name: `Matvey`, avatar: `https://s.starladder.com/uploads/user_logo/5/c/9/d/meta_tag_1039d807e6e9d7e403ecd6510eb61d83.jpg` }
+            ],
+    
+            messages: [
+                { id: 1, message: `Hi` },
+                { id: 2, message: `How is yuor it-kamasutra?` },
+                { id: 3, message: `Yo` },
+                { id: 4, message: `Yo` },
+                { id: 5, message: `Yo` }
+            ],
+
+            newMessageBody: ""
+    
+    
+        },
+    
+        friends: [
             { id: 1, name: `Dimych`, avatar: `https://vraki.net/sites/default/files/inline/images/30_55.jpg` },
             { id: 2, name: `Andrey`, avatar: `https://placepic.ru/wp-content/uploads/2018/01/art-krasivyie-kartinki-Putin-politika-1331294.jpeg` },
             { id: 3, name: `Sveta`, avatar: `https://pixelbox.ru/wp-content/uploads/2021/02/mult-ava-instagram-58.jpg` },
-            { id: 4, name: `Sasha`, avatar: `https://yt3.ggpht.com/ytc/AAUvwng015d5KaGgzodaC6HmRLFwTZi8zmwZnt3onn4o=s900-c-k-c0x00ffffff-no-rj` },
-            { id: 5, name: `Victor`, avatar: `https://placepic.ru/wp-content/uploads/2021/02/image_562610131056464036330.jpg` },
-            { id: 6, name: `Matvey`, avatar: `https://s.starladder.com/uploads/user_logo/5/c/9/d/meta_tag_1039d807e6e9d7e403ecd6510eb61d83.jpg` }
-        ],
-
-        messages: [
-            { id: 1, message: `Hi` },
-            { id: 2, message: `How is yuor it-kamasutra?` },
-            { id: 3, message: `Yo` },
-            { id: 4, message: `Yo` },
-            { id: 5, message: `Yo` }
-        ],
-        newMessageText: ""
-
-
+    
+        ]
+    },
+    _callSubscriber () {
+        console.log(`State changet`)
     },
 
-    friends: [
-        { id: 1, name: `Dimych`, avatar: `https://vraki.net/sites/default/files/inline/images/30_55.jpg` },
-        { id: 2, name: `Andrey`, avatar: `https://placepic.ru/wp-content/uploads/2018/01/art-krasivyie-kartinki-Putin-politika-1331294.jpeg` },
-        { id: 3, name: `Sveta`, avatar: `https://pixelbox.ru/wp-content/uploads/2021/02/mult-ava-instagram-58.jpg` },
+    getState () {
+       return this._state
+    },
+    subscribe (observer) {
+        this._callSubscriber=observer;
+    
+    },
 
-    ]
+        
+dispath (action) {
+    
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage,action);
+    this._state.profilePage = profileReducer(this._state.profilePage,action);
+    this._state.friends = frindsReducer(this._state.friends,action);
+
+    this._callSubscriber(this._state)
+}
 }
 
-export let addPost = () => {
 
-    let newPost = {
-        id: 5,
-        message: state.profilePage.newPostText,
-        likesCount: 0
 
-    };
-    state.profilePage.posts.push(newPost);
-    state.profilePage.newPostText = ``;
-    rerenderEntireTree(state);
+export const addPostActionCreator = () => {
+    return {
+        type: ADD_POST
+    }
 }
 
-export let updateNewPostText = (newText) => {
-    state.profilePage.newPostText=newText;
-    rerenderEntireTree(state);
+export const updateNewPostTextActionCreator = (text) => {
+    return {
+        type: UPDATE_NEW_POST_TEXT, newText: text
+    }
 
 }
-
-export let addMessage =()=>{
-    let newMessage = {
-        id: 6,
-        message: state.dialogsPage.newMessageText
-    };
-    state.dialogsPage.messages.push(newMessage);
-    state.dialogsPage.newMessageText =``;
-    rerenderEntireTree(state);
+export const sendMessageCreator = () => {
+    return {
+        type: SEND_MESSAGE
+    }
 }
 
-export let updateNewMessageText = (newText) => {
-    state.dialogsPage.newMessageText=newText;
-    rerenderEntireTree(state);
+export const updateNewMessageBodyCreator = (body) => {
+    return {
+        type: UPDATE_NEW_MESSAGE_BODY, body: body
+    }
 
 }
 
-export default state;
+
+
+export default store;
+window.store = store
