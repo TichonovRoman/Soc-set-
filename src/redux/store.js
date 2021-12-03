@@ -1,17 +1,12 @@
 import reactDom from "react-dom";
 import dialogsReducer from "./dialogs-reducer";
-import frindsReducer from "./friends-reducer";
+import friendsReducer from "./friends-reducer";
 import profileReducer from "./profile-reducer";
-
-const UPDATE_NEW_POST_TEXT = `UPDATE-NEW-POST-TEXT`;
-const ADD_POST = `ADD-POST`;
-const UPDATE_NEW_MESSAGE_BODY = `UPDATE-NEW-MESSAGE-BODY`;
-const SEND_MESSAGE = `SEND-MESSAGE`;
 
 
 let store = {
 
-        _state: {
+    _state: {
 
         profilePage: {
             posts: [
@@ -22,7 +17,7 @@ let store = {
             ],
             newPostText: "it-kamasutra.com"
         },
-    
+
         dialogsPage: {
             dialogs: [
                 { id: 1, name: `Dimych`, avatar: `https://vraki.net/sites/default/files/inline/images/30_55.jpg` },
@@ -32,7 +27,7 @@ let store = {
                 { id: 5, name: `Victor`, avatar: `https://placepic.ru/wp-content/uploads/2021/02/image_562610131056464036330.jpg` },
                 { id: 6, name: `Matvey`, avatar: `https://s.starladder.com/uploads/user_logo/5/c/9/d/meta_tag_1039d807e6e9d7e403ecd6510eb61d83.jpg` }
             ],
-    
+
             messages: [
                 { id: 1, message: `Hi` },
                 { id: 2, message: `How is yuor it-kamasutra?` },
@@ -42,66 +37,40 @@ let store = {
             ],
 
             newMessageBody: ""
-    
-    
+
+
         },
-    
+
         friends: [
             { id: 1, name: `Dimych`, avatar: `https://vraki.net/sites/default/files/inline/images/30_55.jpg` },
             { id: 2, name: `Andrey`, avatar: `https://placepic.ru/wp-content/uploads/2018/01/art-krasivyie-kartinki-Putin-politika-1331294.jpeg` },
             { id: 3, name: `Sveta`, avatar: `https://pixelbox.ru/wp-content/uploads/2021/02/mult-ava-instagram-58.jpg` },
-    
+
         ]
     },
-    _callSubscriber () {
+    _callSubscriber() {
         console.log(`State changet`)
     },
 
-    getState () {
-       return this._state
+    getState() {
+        return this._state
     },
-    subscribe (observer) {
-        this._callSubscriber=observer;
-    
+    subscribe(observer) {
+        this._callSubscriber = observer;
+
     },
 
-        
-dispath (action) {
-    
-    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage,action);
-    this._state.profilePage = profileReducer(this._state.profilePage,action);
-    this._state.friends = frindsReducer(this._state.friends,action);
 
-    this._callSubscriber(this._state)
-}
-}
+    dispatch(action) {
 
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.friends = friendsReducer(this._state.friends, action);
 
-
-export const addPostActionCreator = () => {
-    return {
-        type: ADD_POST
+        this._callSubscriber(this._state)
     }
 }
 
-export const updateNewPostTextActionCreator = (text) => {
-    return {
-        type: UPDATE_NEW_POST_TEXT, newText: text
-    }
-
-}
-export const sendMessageCreator = () => {
-    return {
-        type: SEND_MESSAGE
-    }
-}
-
-export const updateNewMessageBodyCreator = (body) => {
-    return {
-        type: UPDATE_NEW_MESSAGE_BODY, body: body
-    }
-
-}
 
 
 

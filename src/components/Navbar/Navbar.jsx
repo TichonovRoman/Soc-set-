@@ -3,7 +3,7 @@ import s from "./Navbar.module.css";
 
 
 const Navbar = (props) => {
-  
+debugger
   return (
     <nav className={s.nav}>
       <div className={s.item}>
@@ -33,18 +33,18 @@ const Navbar = (props) => {
       <div className={s.friendsList}>
 
         <div className={s.friends}>
-          <img src={props.state[0].avatar} />
-          {props.state[0].name}
+          <img src={props.state.friends[0].avatar} />
+          {props.state.friends[0].name}
         </div>
 
         <div className={s.friends}>
-          <img src={props.state[1].avatar} />
-          {props.state[1].name}
+          <img src={props.state.friends[1].avatar} />
+          {props.state.friends[1].name}
         </div>
 
         <div className={s.friends}>
-          <img src={props.state[2].avatar} />
-          {props.state[2].name}
+          <img src={props.state.friends[2].avatar} />
+          {props.state.friends[2].name}
         </div>
 
 
