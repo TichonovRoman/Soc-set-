@@ -2,8 +2,6 @@ import s from "./Dialogs.module.css"
 import DialogItem from "./DialogsItem/Dialogs"
 import Message from "./Message/Message"
 import React from "react"
-import { sendMessageCreator, updateNewMessageBodyCreator} from "../../redux/dialogs-reducer";
-import Post from "../Profile/MyPosts/Post/Post";
 
 
 const Dialogs = (props) => {

@@ -1,8 +1,8 @@
 import { NavLink } from "react-router-dom";
+import StoreContext from "../../StoreContext";
 import s from "./Navbar.module.css";
 
-
-const Navbar = (props) => {
+const Navbar = () => {
 
   return (
     <nav className={s.nav}>
@@ -29,28 +29,31 @@ const Navbar = (props) => {
       </div>
 
 
-
+<StoreContext.Consumer>
+{ store => {
+  return (
       <div className={s.friendsList}>
 
         <div className={s.friends}>
-          <img src={props.state.friends[0].avatar} />
-          {props.state.friends[0].name}
+          <img src={store.getState().friends.friends[0].avatar} />
+          {store.getState().friends.friends[0].name}
         </div>
 
         <div className={s.friends}>
-          <img src={props.state.friends[1].avatar} />
-          {props.state.friends[1].name}
+          <img src={store.getState().friends.friends[1].avatar} />
+          {store.getState().friends.friends[1].name}
         </div>
 
         <div className={s.friends}>
-          <img src={props.state.friends[2].avatar} />
-          {props.state.friends[2].name}
+          <img src={store.getState().friends.friends[2].avatar} />
+          {store.getState().friends.friends[2].name}
         </div>
-
-
 
       </div>
-
+  )
+}
+}
+</StoreContext.Consumer>
 
     </nav>
   )

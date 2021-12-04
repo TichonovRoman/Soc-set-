@@ -18,11 +18,11 @@ const App = (props) => {
       <div className="app-wrapper">
 
         <Header />
-        <Navbar state={props.state.friends}/>
+        <Navbar />
         <div className="app-wrapper-content">
           <Routes>
-            <Route path='/dialogs/*' element={<DialogsContainer store = {props.store}/>} />  /* /* этот знак добавляется, если надо убрать exact */
-            <Route path='/profile' element={<Profile store={props.store} />} />
+            <Route path='/dialogs/*' element={<DialogsContainer />} />  /* /* этот знак добавляется, если надо убрать exact */
+            <Route path='/profile' element={<Profile />} />
             <Route path='/news' element={<News />} />
             <Route path='/music' element={<Music />} />
             <Route path='/settings' element={<Settings />} />
