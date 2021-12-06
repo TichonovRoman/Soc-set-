@@ -11,6 +11,7 @@ import Settings from './components/Settings/Settings';
 import Friends from './components/Friends/Friends';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import NavbarContainer from './components/Navbar/NavbarContainer';
+import Users from "./components/Users/Users"
 
 const App = (props) => {
   return (
@@ -23,6 +24,10 @@ const App = (props) => {
           <Routes>
             <Route path='/dialogs/*' element={<DialogsContainer />} />  /* /* этот знак добавляется, если надо убрать exact */
             <Route path='/profile' element={<Profile />} />
+            <Route path='/users' element={<Users />} />
+
+
+
             <Route path='/news' element={<News />} />
             <Route path='/music' element={<Music />} />
             <Route path='/settings' element={<Settings />} />
