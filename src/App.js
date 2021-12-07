@@ -12,6 +12,7 @@ import Friends from './components/Friends/Friends';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import NavbarContainer from './components/Navbar/NavbarContainer';
 import Users from "./components/Users/Users"
+import UsersContainer from './components/Users/UsersContainer';
 
 const App = (props) => {
   return (
@@ -24,7 +25,7 @@ const App = (props) => {
           <Routes>
             <Route path='/dialogs/*' element={<DialogsContainer />} />  /* /* этот знак добавляется, если надо убрать exact */
             <Route path='/profile' element={<Profile />} />
-            <Route path='/users' element={<Users />} />
+            <Route path='/users' element={<UsersContainer />} />
 
 
 
