@@ -12,6 +12,7 @@ import Friends from './components/Friends/Friends';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import NavbarContainer from './components/Navbar/NavbarContainer';
 import UsersContainer from './components/Users/UsersContainer';
+import ProfileContainer from './components/Profile/ProfileContainer';
 
 const App = (props) => {
   return (
@@ -23,7 +24,7 @@ const App = (props) => {
         <div className="app-wrapper-content">
           <Routes>
             <Route path='/dialogs/*' element={<DialogsContainer />} />  /* /* этот знак добавляется, если надо убрать exact */
-            <Route path='/profile' element={<Profile />} />
+            <Route path='/profile' element={<ProfileContainer />} />
             <Route path='/users' element={<UsersContainer />} />
 
 

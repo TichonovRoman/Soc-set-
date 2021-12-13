@@ -12,7 +12,6 @@ import * as axios from 'axios';
 import Users from './Users';
 import userPhoto from '../../accets/images/user.png'
 import React from 'react';
-import preloader from '../../accets/images/preloader.svg'
 import Preloader from '../common/Preloader/Preloader';
 
 

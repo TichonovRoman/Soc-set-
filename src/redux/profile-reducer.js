@@ -2,6 +2,7 @@ import { rerenderEntireTree } from "../index";
 
 const UPDATE_NEW_POST_TEXT = `UPDATE-NEW-POST-TEXT`;
 const ADD_POST = `ADD-POST`;
+const SET_USER_PROFILE = `SET_USER_PROFILE`;
 
 let initialState = {
     posts: [
@@ -10,7 +11,8 @@ let initialState = {
         { id: 3, message: `Это мой второй пост`, likesCount: 20 },
         { id: 4, message: `Это мой третий пост`, likesCount: 20 },
     ],
-    newPostText: "it-kamasutra.com"
+    newPostText: "it-kamasutra.com",
+    profile: null
 }
 
 let profileReducer = (state = initialState, action) => {
@@ -34,9 +36,17 @@ let profileReducer = (state = initialState, action) => {
             return {
                 ...state,
                 newPostText: action.newText
+            }
             };
 
-        }
+        case SET_USER_PROFILE: {
+            return {
+                ...state,
+                profile: action.profile
+            }
+
+        };
+
         default:
             return state
 
@@ -47,6 +57,11 @@ let profileReducer = (state = initialState, action) => {
 export const addPostActionCreator = () => {
     return {
         type: ADD_POST
+    }
+}
+export const setUserProfile = (profile) => {
+    return {
+        type: SET_USER_PROFILE, profile
     }
 }
 
