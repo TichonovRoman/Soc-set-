@@ -1,6 +1,7 @@
 import MyPosts from "./MyPosts/MyPosts";
 import Profileinfo from "./Profileinfo/Profileinfo";
 import MyPostsContainer from './MyPosts/MyPostsContainer';
+import React from "react";
 
 
 
