@@ -12,7 +12,7 @@ import Friends from './components/Friends/Friends';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import NavbarContainer from './components/Navbar/NavbarContainer';
 import UsersContainer from './components/Users/UsersContainer';
-import ProfileContainer from './components/Profile/ProfileContainer';
+import WithUrlDataContainerComponent from './components/Profile/ProfileContainer';
 
 const App = (props) => {
 
@@ -23,19 +23,22 @@ const App = (props) => {
         <Header />
         <NavbarContainer />
         <div className="app-wrapper-content">
-          <Routes>
-            <Route path='/dialogs/*' element={<DialogsContainer />} />  /* /* этот знак добавляется, если надо убрать exact */
-            <Route path='/profile' element={<ProfileContainer />} />
-            <Route path='/users' element={<UsersContainer />} />
+          
+            <Route path='/dialogs' render={() => <DialogsContainer />} />
+            
+            
+            <Route path="/profile/:userId?"  render={() => <WithUrlDataContainerComponent />} />
+                              
+            
+            <Route path='/users'  render={() => <UsersContainer />} />
 
 
 
-            <Route path='/news' element={<News />} />
-            <Route path='/music' element={<Music />} />
-            <Route path='/settings' element={<Settings />} />
-            <Route path='/friends' element={<Friends />} />
-            </Routes>
-
+            <Route path='/news'  render={() => <News />} />
+            <Route path='/music'  render={() => <Music />} />
+            <Route path='/settings'  render={() => <Settings />} />
+            <Route path='/friends'  render={() => <Friends />} />
+           
         </div>
       </div>
      );
