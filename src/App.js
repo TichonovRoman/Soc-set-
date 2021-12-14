@@ -1,8 +1,4 @@
 import './App.css';
-import Dialogs from './components/Dialogs/Dialogs';
-import Header from './components/Header/Header';
-import Navbar from './components/Navbar/Navbar';
-import Profile from './components/Profile/Profile';
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 import Music from './components/Music/Music';
@@ -13,6 +9,7 @@ import DialogsContainer from './components/Dialogs/DialogsContainer';
 import NavbarContainer from './components/Navbar/NavbarContainer';
 import UsersContainer from './components/Users/UsersContainer';
 import WithUrlDataContainerComponent from './components/Profile/ProfileContainer';
+import HeaderContainer from './components/Header/HeaderContainer';
 
 const App = (props) => {
 
@@ -20,7 +17,7 @@ const App = (props) => {
     
       <div className="app-wrapper">
 
-        <Header />
+        <HeaderContainer />
         <NavbarContainer />
         <div className="app-wrapper-content">
           

@@ -1,8 +1,17 @@
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import s from "./Header.module.css";
 
-const Header = () => {
+const Header = (props) => {
+  debugger
   return <header className={s.header}>
     <img src="https://img2.freepng.ru/20180426/zwq/kisspng-hewlett-packard-logo-hewlett-packard-enterprise-hp-laptop-5ae168d447ca66.8372165515247218762941.jpg"></img>
+  
+  <div className={s.loginBlock}>
+  {props.isAuth ? props.login
+  : <NavLink to={'/login'}>Login</NavLink>}
+
+  </div>
+  
   </header>;
 }
 
