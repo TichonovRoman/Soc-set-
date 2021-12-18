@@ -40,6 +40,7 @@ let Users = (props) => {
                 </div>
                 <div>
                     {u.followed ? <button onClick={() => {
+                        debugger
                         axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
                             { withCredentials: true,
                             headers: {
