@@ -17,12 +17,12 @@ getUsers(currentPage, pageSize) {
         })
 },
 
-unfollowAction(id) {
+unfollow(id) {
     return instance.delete(`follow/${id}`)
         },
 
-followAction(id) {
-    return instance.post(`follow/${id}`, {})
+follow(id) {
+    return instance.post(`follow/${id}`)
         }
 
 
