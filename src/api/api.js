@@ -9,23 +9,31 @@ const instance = axios.create({  //это добавляем повторяющ�
 })
 
 export const usersApi = {
-getUsers(currentPage, pageSize) {
-    return instance.get(`users?page=${currentPage}&count=${pageSize}`,
-        { withCredentials: true })
-        .then(response => {
-            return response.data
-        })
-},
+    getUsers(currentPage, pageSize) {
+        return instance.get(`users?page=${currentPage}&count=${pageSize}`,
+            {withCredentials: true})
+            .then(response => {
+                return response.data
+            })
+    },
 
-unfollow(id) {
-    return instance.delete(`follow/${id}`)
-        },
+    unfollow(id) {
+        return instance.delete(`follow/${id}`)
+    },
 
-follow(id) {
-    return instance.post(`follow/${id}`)
-        }
+    follow(id) {
+        return instance.post(`follow/${id}`)
+    },
 
+    getProfile(userId) {
+        return instance.get('profile/' + userId);
+    }
+}
 
+export const authApi = {
+    me() {
+        return instance.get(`auth/me`)
+    }
 }
 
 

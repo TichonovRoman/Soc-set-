@@ -1,4 +1,5 @@
 import { rerenderEntireTree } from "../index";
+import {usersApi} from "../api/api";
 
 const UPDATE_NEW_POST_TEXT = `UPDATE-NEW-POST-TEXT`;
 const ADD_POST = `ADD-POST`;
@@ -63,6 +64,10 @@ export const setUserProfile = (profile) => {
     return {
         type: SET_USER_PROFILE, profile
     }
+}
+
+export const getUserProfile = (userId) =>(dispatch) => {
+    usersApi.getProfile(userId).then(response => {dispatch(setUserProfile(response.data))})
 }
 
 export const updateNewPostTextActionCreator = (text) => {
