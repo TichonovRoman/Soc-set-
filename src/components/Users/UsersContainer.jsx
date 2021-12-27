@@ -12,6 +12,7 @@ import userPhoto from '../../accets/images/user.png'
 import React from 'react';
 import Preloader from '../common/Preloader/Preloader';
 import {usersApi} from '../../api/api';
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 
 
 class UsersContainer extends React.Component {
@@ -73,8 +74,8 @@ let mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps, {
+export default withAuthRedirect(connect(mapStateToProps, {
     follow, unfollow, setUsers,
     setCurrentPage,
     toggleIsFollowingProgress, getUsers
-})(UsersContainer);
+})(UsersContainer));
